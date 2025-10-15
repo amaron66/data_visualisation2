@@ -1,0 +1,668 @@
+Year,Enrolments,Citizenship,State,Institution
+2018,1113,Domestic,Australian Capital Territory,Non-University Higher Education Providers
+2018,3,International,Australian Capital Territory,Non-University Higher Education Providers
+2018,15820,Domestic,Australian Capital Territory,The Australian National University
+2018,10575,International,Australian Capital Territory,The Australian National University
+2018,13163,Domestic,Australian Capital Territory,University of Canberra
+2018,3405,International,Australian Capital Territory,University of Canberra
+2018,19075,Domestic,Grand Total,The University of Western Australia
+2018,480110,International,Grand Total,The University of Western Australia
+2018,29557,Domestic,Multi-State,Australian Catholic University
+2018,4471,International,Multi-State,Australian Catholic University
+2018,3202,Domestic,Multi-State,Non-University Higher Education Providers
+2018,134,International,Multi-State,Non-University Higher Education Providers
+2018,1127,Domestic,New South Wales,Avondale University
+2018,130,International,New South Wales,Avondale University
+2018,32537,Domestic,New South Wales,Charles Sturt University
+2018,10813,International,New South Wales,Charles Sturt University
+2018,32796,Domestic,New South Wales,Macquarie University
+2018,11748,International,New South Wales,Macquarie University
+2018,34180,Domestic,New South Wales,Non-University Higher Education Providers
+2018,25444,International,New South Wales,Non-University Higher Education Providers
+2018,13714,Domestic,New South Wales,Southern Cross University
+2018,4949,International,New South Wales,Southern Cross University
+2018,21950,Domestic,New South Wales,The University of New England
+2018,1494,International,New South Wales,The University of New England
+2018,29021,Domestic,New South Wales,The University of Newcastle
+2018,5841,International,New South Wales,The University of Newcastle
+2018,40777,Domestic,New South Wales,The University of Sydney
+2018,26041,International,New South Wales,The University of Sydney
+2018,39312,Domestic,New South Wales,University of New South Wales
+2018,23114,International,New South Wales,University of New South Wales
+2018,30745,Domestic,New South Wales,University of Technology Sydney
+2018,15257,International,New South Wales,University of Technology Sydney
+2018,19249,Domestic,New South Wales,University of Wollongong
+2018,15079,International,New South Wales,University of Wollongong
+2018,41228,Domestic,New South Wales,Western Sydney University
+2018,7193,International,New South Wales,Western Sydney University
+2018,18,Domestic,Northern Territory,Charles Darwin University
+2018,1991,International,Northern Territory,Charles Darwin University
+2018,195557,Domestic,Queensland,Bond University
+2018,3342,International,Queensland,Bond University
+2018,2986,Domestic,Queensland,CQUniversity
+2018,7517,International,Queensland,CQUniversity
+2018,9439,Domestic,Queensland,Charles Darwin University
+2018,61485,International,Queensland,Charles Darwin University
+2018,17589,Domestic,Queensland,Griffith University
+2018,8563,International,Queensland,Griffith University
+2018,39436,Domestic,Queensland,James Cook University
+2018,6123,International,Queensland,James Cook University
+2018,14680,Domestic,Queensland,Non-University Higher Education Providers
+2018,2011,International,Queensland,Non-University Higher Education Providers
+2018,7090,Domestic,Queensland,Queensland University of Technology
+2018,8966,International,Queensland,Queensland University of Technology
+2018,41803,Domestic,Queensland,The University of Queensland
+2018,18055,International,Queensland,The University of Queensland
+2018,35648,Domestic,Queensland,University of Southern Queensland
+2018,2867,International,Queensland,University of Southern Queensland
+2018,22742,Domestic,Queensland,University of the Sunshine Coast
+2018,4041,International,Queensland,University of the Sunshine Coast
+2018,79466,Domestic,South Australia,Carnegie Mellon University Australia
+2018,5279,International,South Australia,Flinders University
+2018,20505,Domestic,South Australia,Private Universities and Non-University Higher Education Providers
+2018,4163,International,South Australia,Private Universities and Non-University Higher Education Providers
+2018,5357,Domestic,South Australia,The University of Adelaide
+2018,7839,International,South Australia,The University of Adelaide
+2018,19072,Domestic,South Australia,Torrens University Australia
+2018,6063,International,South Australia,Torrens University Australia
+2018,7310,Domestic,South Australia,University of South Australia
+2018,5743,International,South Australia,University of South Australia
+2018,13583,Domestic,South Australia,University of the Sunshine Coast
+2018,29087,International,South Australia,University of the Sunshine Coast
+2018,27222,Domestic,Tasmania,University of South Australia
+2018,7325,International,Tasmania,University of South Australia
+2018,28868,Domestic,Tasmania,University of Tasmania
+2018,7325,International,Tasmania,University of Tasmania
+2018,263377,Domestic,Victoria,Deakin University
+2018,14310,International,Victoria,Deakin University
+2018,45075,Domestic,Victoria,Federation University Australia
+2018,8930,International,Victoria,Federation University Australia
+2018,8656,Domestic,Victoria,La Trobe University
+2018,9840,International,Victoria,La Trobe University
+2018,29425,Domestic,Victoria,Monash University
+2018,38295,International,Victoria,Monash University
+2018,45183,Domestic,Victoria,Non-University Higher Education Providers
+2018,26146,International,Victoria,Non-University Higher Education Providers
+2018,6235,Domestic,Victoria,RMIT University
+2018,31552,International,Victoria,RMIT University
+2018,37734,Domestic,Victoria,Swinburne University of Technology
+2018,10429,International,Victoria,Swinburne University of Technology
+2018,31942,Domestic,Victoria,The University of Melbourne
+2018,26568,International,Victoria,The University of Melbourne
+2018,41516,Domestic,Victoria,University of Divinity
+2018,155,International,Victoria,University of Divinity
+2018,28868,Domestic,Victoria,University of Tasmania
+2018,177283,International,Victoria,University of Tasmania
+2018,1453,Domestic,Victoria,Victoria University
+2018,11058,International,Victoria,Victoria University
+2018,106194,Domestic,Western Australia,Curtin University
+2018,13179,International,Western Australia,Curtin University
+2018,35468,Domestic,Western Australia,Edith Cowan University
+2018,6033,International,Western Australia,Edith Cowan University
+2018,23863,Domestic,Western Australia,Murdoch University
+2018,9101,International,Western Australia,Murdoch University
+2018,15021,Domestic,Western Australia,Non-University Higher Education Providers
+2018,3294,International,Western Australia,Non-University Higher Education Providers
+2018,1298,Domestic,Western Australia,The University of Notre Dame Australia
+2018,252,International,Western Australia,The University of Notre Dame Australia
+2018,11469,Domestic,Western Australia,The University of Western Australia
+2018,5389,International,Western Australia,The University of Western Australia
+2018,16158,Domestic,Western Australia,Victoria University
+2018,37248,International,Western Australia,Victoria University
+2019,1356,Domestic,Australian Capital Territory,Non-University Higher Education Providers
+2019,336,International,Australian Capital Territory,Non-University Higher Education Providers
+2019,15805,Domestic,Australian Capital Territory,The Australian National University
+2019,10526,International,Australian Capital Territory,The Australian National University
+2019,12839,Domestic,Australian Capital Territory,University of Canberra
+2019,3571,International,Australian Capital Territory,University of Canberra
+2019,18774,Domestic,Grand Total,The University of Western Australia
+2019,523748,International,Grand Total,The University of Western Australia
+2019,28472,Domestic,Multi-State,Australian Catholic University
+2019,4632,International,Multi-State,Australian Catholic University
+2019,2998,Domestic,Multi-State,Non-University Higher Education Providers
+2019,170,International,Multi-State,Non-University Higher Education Providers
+2019,1118,Domestic,New South Wales,Avondale University
+2019,184,International,New South Wales,Avondale University
+2019,32967,Domestic,New South Wales,Charles Sturt University
+2019,10502,International,New South Wales,Charles Sturt University
+2019,33001,Domestic,New South Wales,Macquarie University
+2019,12263,International,New South Wales,Macquarie University
+2019,34587,Domestic,New South Wales,Non-University Higher Education Providers
+2019,29017,International,New South Wales,Non-University Higher Education Providers
+2019,14314,Domestic,New South Wales,Southern Cross University
+2019,5899,International,New South Wales,Southern Cross University
+2019,23158,Domestic,New South Wales,The University of New England
+2019,1937,International,New South Wales,The University of New England
+2019,29581,Domestic,New South Wales,The University of Newcastle
+2019,5947,International,New South Wales,The University of Newcastle
+2019,39758,Domestic,New South Wales,The University of Sydney
+2019,30076,International,New South Wales,The University of Sydney
+2019,39026,Domestic,New South Wales,University of New South Wales
+2019,24838,International,New South Wales,University of New South Wales
+2019,30547,Domestic,New South Wales,University of Technology Sydney
+2019,15579,International,New South Wales,University of Technology Sydney
+2019,18916,Domestic,New South Wales,University of Wollongong
+2019,15984,International,New South Wales,University of Wollongong
+2019,41086,Domestic,New South Wales,Western Sydney University
+2019,8172,International,New South Wales,Western Sydney University
+2019,12,Domestic,Northern Territory,Charles Darwin University
+2019,2023,International,Northern Territory,Charles Darwin University
+2019,197174,Domestic,Queensland,Bond University
+2019,3224,International,Queensland,Bond University
+2019,2952,Domestic,Queensland,CQUniversity
+2019,8726,International,Queensland,CQUniversity
+2019,10260,Domestic,Queensland,Charles Darwin University
+2019,66655,International,Queensland,Charles Darwin University
+2019,18305,Domestic,Queensland,Griffith University
+2019,9076,International,Queensland,Griffith University
+2019,40548,Domestic,Queensland,James Cook University
+2019,6693,International,Queensland,James Cook University
+2019,14222,Domestic,Queensland,Non-University Higher Education Providers
+2019,2001,International,Queensland,Non-University Higher Education Providers
+2019,6795,Domestic,Queensland,Queensland University of Technology
+2019,9829,International,Queensland,Queensland University of Technology
+2019,42676,Domestic,Queensland,The University of Queensland
+2019,20254,International,Queensland,The University of Queensland
+2019,35008,Domestic,Queensland,University of Southern Queensland
+2019,3017,International,Queensland,University of Southern Queensland
+2019,22689,Domestic,Queensland,University of the Sunshine Coast
+2019,3835,International,Queensland,University of the Sunshine Coast
+2019,81149,Domestic,South Australia,Carnegie Mellon University Australia
+2019,5174,International,South Australia,Flinders University
+2019,20357,Domestic,South Australia,Private Universities and Non-University Higher Education Providers
+2019,3515,International,South Australia,Private Universities and Non-University Higher Education Providers
+2019,4928,Domestic,South Australia,The University of Adelaide
+2019,9001,International,South Australia,The University of Adelaide
+2019,19305,Domestic,South Australia,Torrens University Australia
+2019,9610,International,South Australia,Torrens University Australia
+2019,8187,Domestic,South Australia,University of South Australia
+2019,6774,International,South Australia,University of South Australia
+2019,13979,Domestic,South Australia,University of the Sunshine Coast
+2019,34074,International,South Australia,University of the Sunshine Coast
+2019,28372,Domestic,Tasmania,University of South Australia
+2019,8163,International,Tasmania,University of South Australia
+2019,28423,Domestic,Tasmania,University of Tasmania
+2019,8163,International,Tasmania,University of Tasmania
+2019,263184,Domestic,Victoria,Deakin University
+2019,16193,International,Victoria,Deakin University
+2019,45848,Domestic,Victoria,Federation University Australia
+2019,10269,International,Victoria,Federation University Australia
+2019,8441,Domestic,Victoria,La Trobe University
+2019,10648,International,Victoria,La Trobe University
+2019,28229,Domestic,Victoria,Monash University
+2019,41383,International,Victoria,Monash University
+2019,45310,Domestic,Victoria,Non-University Higher Education Providers
+2019,29029,International,Victoria,Non-University Higher Education Providers
+2019,6291,Domestic,Victoria,RMIT University
+2019,33810,International,Victoria,RMIT University
+2019,38738,Domestic,Victoria,Swinburne University of Technology
+2019,10774,International,Victoria,Swinburne University of Technology
+2019,31076,Domestic,Victoria,The University of Melbourne
+2019,28545,International,Victoria,The University of Melbourne
+2019,41961,Domestic,Victoria,University of Divinity
+2019,193,International,Victoria,University of Divinity
+2019,28423,Domestic,Victoria,University of Tasmania
+2019,193277,International,Victoria,University of Tasmania
+2019,1319,Domestic,Victoria,Victoria University
+2019,12433,International,Victoria,Victoria University
+2019,106319,Domestic,Western Australia,Curtin University
+2019,13446,International,Western Australia,Curtin University
+2019,35758,Domestic,Western Australia,Edith Cowan University
+2019,6864,International,Western Australia,Edith Cowan University
+2019,23774,Domestic,Western Australia,Murdoch University
+2019,10206,International,Western Australia,Murdoch University
+2019,15398,Domestic,Western Australia,Non-University Higher Education Providers
+2019,3768,International,Western Australia,Non-University Higher Education Providers
+2019,1139,Domestic,Western Australia,The University of Notre Dame Australia
+2019,277,International,Western Australia,The University of Notre Dame Australia
+2019,11476,Domestic,Western Australia,The University of Western Australia
+2019,5362,International,Western Australia,The University of Western Australia
+2019,15971,Domestic,Western Australia,Victoria University
+2019,39923,International,Western Australia,Victoria University
+2020,1536,Domestic,Australian Capital Territory,Non-University Higher Education Providers
+2020,370,International,Australian Capital Territory,Non-University Higher Education Providers
+2020,15468,Domestic,Australian Capital Territory,The Australian National University
+2020,8868,International,Australian Capital Territory,The Australian National University
+2020,12676,Domestic,Australian Capital Territory,University of Canberra
+2020,3647,International,Australian Capital Territory,University of Canberra
+2020,19039,Domestic,Grand Total,The University of Western Australia
+2020,489348,International,Grand Total,The University of Western Australia
+2020,28230,Domestic,Multi-State,Australian Catholic University
+2020,4116,International,Multi-State,Australian Catholic University
+2020,3049,Domestic,Multi-State,Non-University Higher Education Providers
+2020,117,International,Multi-State,Non-University Higher Education Providers
+2020,1063,Domestic,New South Wales,Avondale University
+2020,134,International,New South Wales,Avondale University
+2020,35810,Domestic,New South Wales,Charles Sturt University
+2020,7477,International,New South Wales,Charles Sturt University
+2020,33836,Domestic,New South Wales,Macquarie University
+2020,10964,International,New South Wales,Macquarie University
+2020,38012,Domestic,New South Wales,Non-University Higher Education Providers
+2020,29017,International,New South Wales,Non-University Higher Education Providers
+2020,15784,Domestic,New South Wales,Southern Cross University
+2020,4041,International,New South Wales,Southern Cross University
+2020,23378,Domestic,New South Wales,The University of New England
+2020,1484,International,New South Wales,The University of New England
+2020,31542,Domestic,New South Wales,The University of Newcastle
+2020,5387,International,New South Wales,The University of Newcastle
+2020,40543,Domestic,New South Wales,The University of Sydney
+2020,32053,International,New South Wales,The University of Sydney
+2020,40131,Domestic,New South Wales,University of New South Wales
+2020,23155,International,New South Wales,University of New South Wales
+2020,32247,Domestic,New South Wales,University of Technology Sydney
+2020,14001,International,New South Wales,University of Technology Sydney
+2020,19486,Domestic,New South Wales,University of Wollongong
+2020,13878,International,New South Wales,University of Wollongong
+2020,41198,Domestic,New South Wales,Western Sydney University
+2020,7855,International,New South Wales,Western Sydney University
+2020,26,Domestic,Northern Territory,Charles Darwin University
+2020,2105,International,Northern Territory,Charles Darwin University
+2020,202924,Domestic,Queensland,Bond University
+2020,2449,International,Queensland,Bond University
+2020,3145,Domestic,Queensland,CQUniversity
+2020,5818,International,Queensland,CQUniversity
+2020,11696,Domestic,Queensland,Charles Darwin University
+2020,57955,International,Queensland,Charles Darwin University
+2020,19814,Domestic,Queensland,Griffith University
+2020,8402,International,Queensland,Griffith University
+2020,41417,Domestic,Queensland,James Cook University
+2020,5960,International,Queensland,James Cook University
+2020,13836,Domestic,Queensland,Non-University Higher Education Providers
+2020,1478,International,Queensland,Non-University Higher Education Providers
+2020,7121,Domestic,Queensland,Queensland University of Technology
+2020,8436,International,Queensland,Queensland University of Technology
+2020,44281,Domestic,Queensland,The University of Queensland
+2020,20431,International,Queensland,The University of Queensland
+2020,34558,Domestic,Queensland,University of Southern Queensland
+2020,2476,International,Queensland,University of Southern Queensland
+2020,23092,Domestic,Queensland,University of the Sunshine Coast
+2020,2505,International,Queensland,University of the Sunshine Coast
+2020,87699,Domestic,South Australia,Carnegie Mellon University Australia
+2020,84,International,South Australia,Carnegie Mellon University Australia
+2020,11,Domestic,South Australia,Flinders University
+2020,5025,International,South Australia,Flinders University
+2020,20919,Domestic,South Australia,Private Universities and Non-University Higher Education Providers
+2020,3352,International,South Australia,Private Universities and Non-University Higher Education Providers
+2020,4834,Domestic,South Australia,The University of Adelaide
+2020,9229,International,South Australia,The University of Adelaide
+2020,20224,Domestic,South Australia,Torrens University Australia
+2020,12549,International,South Australia,Torrens University Australia
+2020,10720,Domestic,South Australia,University of South Australia
+2020,6876,International,South Australia,University of South Australia
+2020,15660,Domestic,South Australia,University of the Sunshine Coast
+2020,37115,International,South Australia,University of the Sunshine Coast
+2020,30991,Domestic,Tasmania,University of South Australia
+2020,7864,International,Tasmania,University of South Australia
+2020,34032,Domestic,Tasmania,University of Tasmania
+2020,7864,International,Tasmania,University of Tasmania
+2020,273115,Domestic,Victoria,Deakin University
+2020,14598,International,Victoria,Deakin University
+2020,49608,Domestic,Victoria,Federation University Australia
+2020,8600,International,Victoria,Federation University Australia
+2020,8193,Domestic,Victoria,La Trobe University
+2020,8720,International,Victoria,La Trobe University
+2020,28383,Domestic,Victoria,Monash University
+2020,40480,International,Victoria,Monash University
+2020,45523,Domestic,Victoria,Non-University Higher Education Providers
+2020,25361,International,Victoria,Non-University Higher Education Providers
+2020,6887,Domestic,Victoria,RMIT University
+2020,33296,International,Victoria,RMIT University
+2020,41308,Domestic,Victoria,Swinburne University of Technology
+2020,9886,International,Victoria,Swinburne University of Technology
+2020,31987,Domestic,Victoria,The University of Melbourne
+2020,27254,International,Victoria,The University of Melbourne
+2020,42654,Domestic,Victoria,University of Divinity
+2020,168,International,Victoria,University of Divinity
+2020,34032,Domestic,Victoria,University of Tasmania
+2020,179590,International,Victoria,University of Tasmania
+2020,1300,Domestic,Victoria,Victoria University
+2020,11227,International,Victoria,Victoria University
+2020,110038,Domestic,Western Australia,Curtin University
+2020,12825,International,Western Australia,Curtin University
+2020,37131,Domestic,Western Australia,Edith Cowan University
+2020,6697,International,Western Australia,Edith Cowan University
+2020,24203,Domestic,Western Australia,Murdoch University
+2020,9314,International,Western Australia,Murdoch University
+2020,16095,Domestic,Western Australia,Non-University Higher Education Providers
+2020,3630,International,Western Australia,Non-University Higher Education Providers
+2020,1183,Domestic,Western Australia,The University of Notre Dame Australia
+2020,311,International,Western Australia,The University of Notre Dame Australia
+2020,12387,Domestic,Western Australia,The University of Western Australia
+2020,5378,International,Western Australia,The University of Western Australia
+2020,17272,Domestic,Western Australia,Victoria University
+2020,38155,International,Western Australia,Victoria University
+2021,1796,Domestic,Australian Capital Territory,Non-University Higher Education Providers
+2021,122,International,Australian Capital Territory,Non-University Higher Education Providers
+2021,16402,Domestic,Australian Capital Territory,The Australian National University
+2021,8274,International,Australian Capital Territory,The Australian National University
+2021,12778,Domestic,Australian Capital Territory,University of Canberra
+2021,3578,International,Australian Capital Territory,University of Canberra
+2021,21231,Domestic,Grand Total,The University of Western Australia
+2021,440661,International,Grand Total,The University of Western Australia
+2021,29210,Domestic,Multi-State,Australian Catholic University
+2021,3527,International,Multi-State,Australian Catholic University
+2021,2817,Domestic,Multi-State,Non-University Higher Education Providers
+2021,135,International,Multi-State,Non-University Higher Education Providers
+2021,1146,Domestic,New South Wales,Avondale University
+2021,118,International,New South Wales,Avondale University
+2021,35073,Domestic,New South Wales,Charles Sturt University
+2021,5331,International,New South Wales,Charles Sturt University
+2021,35835,Domestic,New South Wales,Macquarie University
+2021,9072,International,New South Wales,Macquarie University
+2021,38274,Domestic,New South Wales,Non-University Higher Education Providers
+2021,25648,International,New South Wales,Non-University Higher Education Providers
+2021,15410,Domestic,New South Wales,Southern Cross University
+2021,3338,International,New South Wales,Southern Cross University
+2021,22518,Domestic,New South Wales,The University of New England
+2021,1199,International,New South Wales,The University of New England
+2021,32084,Domestic,New South Wales,The University of Newcastle
+2021,4693,International,New South Wales,The University of Newcastle
+2021,42250,Domestic,New South Wales,The University of Sydney
+2021,35225,International,New South Wales,The University of Sydney
+2021,42649,Domestic,New South Wales,University of New South Wales
+2021,22951,International,New South Wales,University of New South Wales
+2021,31668,Domestic,New South Wales,University of Technology Sydney
+2021,11540,International,New South Wales,University of Technology Sydney
+2021,20015,Domestic,New South Wales,University of Wollongong
+2021,12010,International,New South Wales,University of Wollongong
+2021,41526,Domestic,New South Wales,Western Sydney University
+2021,7120,International,New South Wales,Western Sydney University
+2021,15,Domestic,Northern Territory,Charles Darwin University
+2021,2029,International,Northern Territory,Charles Darwin University
+2021,208285,Domestic,Queensland,Bond University
+2021,1718,International,Queensland,Bond University
+2021,3453,Domestic,Queensland,CQUniversity
+2021,2888,International,Queensland,CQUniversity
+2021,12625,Domestic,Queensland,Charles Darwin University
+2021,50018,International,Queensland,Charles Darwin University
+2021,19816,Domestic,Queensland,Griffith University
+2021,7201,International,Queensland,Griffith University
+2021,42102,Domestic,Queensland,James Cook University
+2021,5295,International,Queensland,James Cook University
+2021,14455,Domestic,Queensland,Non-University Higher Education Providers
+2021,1124,International,Queensland,Non-University Higher Education Providers
+2021,7808,Domestic,Queensland,Queensland University of Technology
+2021,7165,International,Queensland,Queensland University of Technology
+2021,46109,Domestic,Queensland,The University of Queensland
+2021,20988,International,Queensland,The University of Queensland
+2021,35163,Domestic,Queensland,University of Southern Queensland
+2021,1959,International,Queensland,University of Southern Queensland
+2021,22761,Domestic,Queensland,University of the Sunshine Coast
+2021,1680,International,Queensland,University of the Sunshine Coast
+2021,90842,Domestic,South Australia,Carnegie Mellon University Australia
+2021,194,International,South Australia,Carnegie Mellon University Australia
+2021,8,Domestic,South Australia,Flinders University
+2021,4525,International,South Australia,Flinders University
+2021,21022,Domestic,South Australia,Private Universities and Non-University Higher Education Providers
+2021,2444,International,South Australia,Private Universities and Non-University Higher Education Providers
+2021,4807,Domestic,South Australia,The University of Adelaide
+2021,9078,International,South Australia,The University of Adelaide
+2021,21653,Domestic,South Australia,Torrens University Australia
+2021,12403,International,South Australia,Torrens University Australia
+2021,11053,Domestic,South Australia,University of South Australia
+2021,5483,International,South Australia,University of South Australia
+2021,16618,Domestic,South Australia,University of the Sunshine Coast
+2021,34127,International,South Australia,University of the Sunshine Coast
+2021,32299,Domestic,Tasmania,University of South Australia
+2021,6091,International,Tasmania,University of South Australia
+2021,30258,Domestic,Tasmania,University of Tasmania
+2021,6091,International,Tasmania,University of Tasmania
+2021,286263,Domestic,Victoria,Deakin University
+2021,11042,International,Victoria,Deakin University
+2021,51844,Domestic,Victoria,Federation University Australia
+2021,5432,International,Victoria,Federation University Australia
+2021,8349,Domestic,Victoria,La Trobe University
+2021,6661,International,Victoria,La Trobe University
+2021,28561,Domestic,Victoria,Monash University
+2021,38172,International,Victoria,Monash University
+2021,48926,Domestic,Victoria,Non-University Higher Education Providers
+2021,18704,International,Victoria,Non-University Higher Education Providers
+2021,9015,Domestic,Victoria,RMIT University
+2021,33278,International,Victoria,RMIT University
+2021,42841,Domestic,Victoria,Swinburne University of Technology
+2021,9504,International,Victoria,Swinburne University of Technology
+2021,32336,Domestic,Victoria,The University of Melbourne
+2021,26494,International,Victoria,The University of Melbourne
+2021,44598,Domestic,Victoria,University of Divinity
+2021,124,International,Victoria,University of Divinity
+2021,30258,Domestic,Victoria,University of Tasmania
+2021,159186,International,Victoria,University of Tasmania
+2021,1279,Domestic,Victoria,Victoria University
+2021,9775,International,Victoria,Victoria University
+2021,112173,Domestic,Western Australia,Curtin University
+2021,12096,International,Western Australia,Curtin University
+2021,38503,Domestic,Western Australia,Edith Cowan University
+2021,5626,International,Western Australia,Edith Cowan University
+2021,24333,Domestic,Western Australia,Murdoch University
+2021,8622,International,Western Australia,Murdoch University
+2021,14695,Domestic,Western Australia,Non-University Higher Education Providers
+2021,3360,International,Western Australia,Non-University Higher Education Providers
+2021,1259,Domestic,Western Australia,The University of Notre Dame Australia
+2021,175,International,Western Australia,The University of Notre Dame Australia
+2021,12152,Domestic,Western Australia,The University of Western Australia
+2021,5450,International,Western Australia,The University of Western Australia
+2021,18514,Domestic,Western Australia,Victoria University
+2021,35329,International,Western Australia,Victoria University
+2022,1484,Domestic,Australian Capital Territory,Non-University Higher Education Providers
+2022,97,International,Australian Capital Territory,Non-University Higher Education Providers
+2022,15604,Domestic,Australian Capital Territory,The Australian National University
+2022,8638,International,Australian Capital Territory,The Australian National University
+2022,12909,Domestic,Australian Capital Territory,University of Canberra
+2022,3940,International,Australian Capital Territory,University of Canberra
+2022,20947,Domestic,Grand Total,The University of Western Australia
+2022,448728,International,Grand Total,The University of Western Australia
+2022,28604,Domestic,Multi-State,Australian Catholic University
+2022,3896,International,Multi-State,Australian Catholic University
+2022,2660,Domestic,Multi-State,Non-University Higher Education Providers
+2022,127,International,Multi-State,Non-University Higher Education Providers
+2022,1012,Domestic,New South Wales,Avondale University
+2022,99,International,New South Wales,Avondale University
+2022,32928,Domestic,New South Wales,Charles Sturt University
+2022,3704,International,New South Wales,Charles Sturt University
+2022,35466,Domestic,New South Wales,Macquarie University
+2022,8423,International,New South Wales,Macquarie University
+2022,35773,Domestic,New South Wales,Non-University Higher Education Providers
+2022,30098,International,New South Wales,Non-University Higher Education Providers
+2022,13916,Domestic,New South Wales,Southern Cross University
+2022,3293,International,New South Wales,Southern Cross University
+2022,20324,Domestic,New South Wales,The University of New England
+2022,1008,International,New South Wales,The University of New England
+2022,30202,Domestic,New South Wales,The University of Newcastle
+2022,5001,International,New South Wales,The University of Newcastle
+2022,40380,Domestic,New South Wales,The University of Sydney
+2022,36593,International,New South Wales,The University of Sydney
+2022,42750,Domestic,New South Wales,University of New South Wales
+2022,23714,International,New South Wales,University of New South Wales
+2022,33296,Domestic,New South Wales,University of Technology Sydney
+2022,11423,International,New South Wales,University of Technology Sydney
+2022,19081,Domestic,New South Wales,University of Wollongong
+2022,12039,International,New South Wales,University of Wollongong
+2022,38525,Domestic,New South Wales,Western Sydney University
+2022,8355,International,New South Wales,Western Sydney University
+2022,18,Domestic,Northern Territory,Charles Darwin University
+2022,2008,International,Northern Territory,Charles Darwin University
+2022,194374,Domestic,Queensland,Bond University
+2022,1992,International,Queensland,Bond University
+2022,3596,Domestic,Queensland,CQUniversity
+2022,4058,International,Queensland,CQUniversity
+2022,10948,Domestic,Queensland,Charles Darwin University
+2022,51823,International,Queensland,Charles Darwin University
+2022,17866,Domestic,Queensland,Griffith University
+2022,7416,International,Queensland,Griffith University
+2022,38631,Domestic,Queensland,James Cook University
+2022,6050,International,Queensland,James Cook University
+2022,13269,Domestic,Queensland,Non-University Higher Education Providers
+2022,1072,International,Queensland,Non-University Higher Education Providers
+2022,7229,Domestic,Queensland,Queensland University of Technology
+2022,6973,International,Queensland,Queensland University of Technology
+2022,43111,Domestic,Queensland,The University of Queensland
+2022,20751,International,Queensland,The University of Queensland
+2022,34312,Domestic,Queensland,University of Southern Queensland
+2022,1743,International,Queensland,University of Southern Queensland
+2022,20649,Domestic,Queensland,University of the Sunshine Coast
+2022,1768,International,Queensland,University of the Sunshine Coast
+2022,89424,Domestic,South Australia,Carnegie Mellon University Australia
+2022,116,International,South Australia,Carnegie Mellon University Australia
+2022,13,Domestic,South Australia,Flinders University
+2022,5376,International,South Australia,Flinders University
+2022,20258,Domestic,South Australia,Private Universities and Non-University Higher Education Providers
+2022,2531,International,South Australia,Private Universities and Non-University Higher Education Providers
+2022,4584,Domestic,South Australia,The University of Adelaide
+2022,8448,International,South Australia,The University of Adelaide
+2022,21604,Domestic,South Australia,Torrens University Australia
+2022,12154,International,South Australia,Torrens University Australia
+2022,12544,Domestic,South Australia,University of South Australia
+2022,5682,International,South Australia,University of South Australia
+2022,15711,Domestic,South Australia,University of the Sunshine Coast
+2022,34307,International,South Australia,University of the Sunshine Coast
+2022,30421,Domestic,Tasmania,University of South Australia
+2022,5412,International,Tasmania,University of South Australia
+2022,28124,Domestic,Tasmania,University of Tasmania
+2022,5412,International,Tasmania,University of Tasmania
+2022,268198,Domestic,Victoria,Deakin University
+2022,11108,International,Victoria,Deakin University
+2022,46458,Domestic,Victoria,Federation University Australia
+2022,5557,International,Victoria,Federation University Australia
+2022,7774,Domestic,Victoria,La Trobe University
+2022,7137,International,Victoria,La Trobe University
+2022,27236,Domestic,Victoria,Monash University
+2022,35057,International,Victoria,Monash University
+2022,47002,Domestic,Victoria,Non-University Higher Education Providers
+2022,16536,International,Victoria,Non-University Higher Education Providers
+2022,7077,Domestic,Victoria,RMIT University
+2022,32857,International,Victoria,RMIT University
+2022,39987,Domestic,Victoria,Swinburne University of Technology
+2022,11400,International,Victoria,Swinburne University of Technology
+2022,29783,Domestic,Victoria,The University of Melbourne
+2022,26881,International,Victoria,The University of Melbourne
+2022,43265,Domestic,Victoria,University of Divinity
+2022,117,International,Victoria,University of Divinity
+2022,28124,Domestic,Victoria,University of Tasmania
+2022,158080,International,Victoria,University of Tasmania
+2022,1270,Domestic,Victoria,Victoria University
+2022,11430,International,Victoria,Victoria University
+2022,106683,Domestic,Western Australia,Curtin University
+2022,12463,International,Western Australia,Curtin University
+2022,37615,Domestic,Western Australia,Edith Cowan University
+2022,6073,International,Western Australia,Edith Cowan University
+2022,22350,Domestic,Western Australia,Murdoch University
+2022,8348,International,Western Australia,Murdoch University
+2022,12920,Domestic,Western Australia,Non-University Higher Education Providers
+2022,4008,International,Western Australia,Non-University Higher Education Providers
+2022,1389,Domestic,Western Australia,The University of Notre Dame Australia
+2022,342,International,Western Australia,The University of Notre Dame Australia
+2022,11462,Domestic,Western Australia,The University of Western Australia
+2022,5416,International,Western Australia,The University of Western Australia
+2022,18346,Domestic,Western Australia,Victoria University
+2022,36650,International,Western Australia,Victoria University
+2023,1235,Domestic,Australian Capital Territory,Non-University Higher Education Providers
+2023,42,International,Australian Capital Territory,Non-University Higher Education Providers
+2023,14517,Domestic,Australian Capital Territory,The Australian National University
+2023,9734,International,Australian Capital Territory,The Australian National University
+2023,12746,Domestic,Australian Capital Territory,University of Canberra
+2023,4401,International,Australian Capital Territory,University of Canberra
+2023,20329,Domestic,Grand Total,The University of Western Australia
+2023,524642,International,Grand Total,The University of Western Australia
+2023,28163,Domestic,Multi-State,Australian Catholic University
+2023,4118,International,Multi-State,Australian Catholic University
+2023,2445,Domestic,Multi-State,Non-University Higher Education Providers
+2023,111,International,Multi-State,Non-University Higher Education Providers
+2023,963,Domestic,New South Wales,Avondale University
+2023,75,International,New South Wales,Avondale University
+2023,31383,Domestic,New South Wales,Charles Sturt University
+2023,3397,International,New South Wales,Charles Sturt University
+2023,34023,Domestic,New South Wales,Macquarie University
+2023,10194,International,New South Wales,Macquarie University
+2023,45781,Domestic,New South Wales,Non-University Higher Education Providers
+2023,37831,International,New South Wales,Non-University Higher Education Providers
+2023,13137,Domestic,New South Wales,Southern Cross University
+2023,4108,International,New South Wales,Southern Cross University
+2023,18712,Domestic,New South Wales,The University of New England
+2023,1411,International,New South Wales,The University of New England
+2023,28271,Domestic,New South Wales,The University of Newcastle
+2023,5848,International,New South Wales,The University of Newcastle
+2023,38560,Domestic,New South Wales,The University of Sydney
+2023,37528,International,New South Wales,The University of Sydney
+2023,42607,Domestic,New South Wales,University of New South Wales
+2023,27735,International,New South Wales,University of New South Wales
+2023,34852,Domestic,New South Wales,University of Technology Sydney
+2023,12925,International,New South Wales,University of Technology Sydney
+2023,18735,Domestic,New South Wales,University of Wollongong
+2023,15346,International,New South Wales,University of Wollongong
+2023,36253,Domestic,New South Wales,Western Sydney University
+2023,10356,International,New South Wales,Western Sydney University
+2023,28,Domestic,Northern Territory,Charles Darwin University
+2023,3439,International,Northern Territory,Charles Darwin University
+2023,186826,Domestic,Queensland,Bond University
+2023,2219,International,Queensland,Bond University
+2023,3498,Domestic,Queensland,CQUniversity
+2023,5172,International,Queensland,CQUniversity
+2023,9572,Domestic,Queensland,Charles Darwin University
+2023,61223,International,Queensland,Charles Darwin University
+2023,16737,Domestic,Queensland,Griffith University
+2023,9255,International,Queensland,Griffith University
+2023,36266,Domestic,Queensland,James Cook University
+2023,7857,International,Queensland,James Cook University
+2023,12503,Domestic,Queensland,Non-University Higher Education Providers
+2023,1153,International,Queensland,Non-University Higher Education Providers
+2023,6581,Domestic,Queensland,Queensland University of Technology
+2023,9748,International,Queensland,Queensland University of Technology
+2023,42379,Domestic,Queensland,The University of Queensland
+2023,21531,International,Queensland,The University of Queensland
+2023,33881,Domestic,Queensland,University of Southern Queensland
+2023,2367,International,Queensland,University of Southern Queensland
+2023,18915,Domestic,Queensland,University of the Sunshine Coast
+2023,1921,International,Queensland,University of the Sunshine Coast
+2023,86675,Domestic,South Australia,Carnegie Mellon University Australia
+2023,13,International,South Australia,Carnegie Mellon University Australia
+2023,6970,International,South Australia,Flinders University
+2023,19479,Domestic,South Australia,Private Universities and Non-University Higher Education Providers
+2023,3182,International,South Australia,Private Universities and Non-University Higher Education Providers
+2023,4403,Domestic,South Australia,The University of Adelaide
+2023,9026,International,South Australia,The University of Adelaide
+2023,21148,Domestic,South Australia,Torrens University Australia
+2023,11361,International,South Australia,Torrens University Australia
+2023,13472,Domestic,South Australia,University of South Australia
+2023,6407,International,South Australia,University of South Australia
+2023,16066,Domestic,South Australia,University of the Sunshine Coast
+2023,36959,International,South Australia,University of the Sunshine Coast
+2023,28173,Domestic,Tasmania,University of South Australia
+2023,5441,International,Tasmania,University of South Australia
+2023,26072,Domestic,Tasmania,University of Tasmania
+2023,5441,International,Tasmania,University of Tasmania
+2023,262171,Domestic,Victoria,Deakin University
+2023,14236,International,Victoria,Deakin University
+2023,43355,Domestic,Victoria,Federation University Australia
+2023,5422,International,Victoria,Federation University Australia
+2023,7788,Domestic,Victoria,La Trobe University
+2023,9733,International,Victoria,La Trobe University
+2023,26441,Domestic,Victoria,Monash University
+2023,35897,International,Victoria,Monash University
+2023,48299,Domestic,Victoria,Non-University Higher Education Providers
+2023,21514,International,Victoria,Non-University Higher Education Providers
+2023,6756,Domestic,Victoria,RMIT University
+2023,35646,International,Victoria,RMIT University
+2023,37681,Domestic,Victoria,Swinburne University of Technology
+2023,15370,International,Victoria,Swinburne University of Technology
+2023,29957,Domestic,Victoria,The University of Melbourne
+2023,30024,International,Victoria,The University of Melbourne
+2023,42220,Domestic,Victoria,University of Divinity
+2023,145,International,Victoria,University of Divinity
+2023,26072,Domestic,Victoria,University of Tasmania
+2023,182742,International,Victoria,University of Tasmania
+2023,1137,Domestic,Victoria,Victoria University
+2023,14755,International,Victoria,Victoria University
+2023,102194,Domestic,Western Australia,Curtin University
+2023,14766,International,Western Australia,Curtin University
+2023,37371,Domestic,Western Australia,Edith Cowan University
+2023,8452,International,Western Australia,Edith Cowan University
+2023,21266,Domestic,Western Australia,Murdoch University
+2023,12714,International,Western Australia,Murdoch University
+2023,11391,Domestic,Western Australia,Non-University Higher Education Providers
+2023,6413,International,Western Australia,Non-University Higher Education Providers
+2023,1037,Domestic,Western Australia,The University of Notre Dame Australia
+2023,581,International,Western Australia,The University of Notre Dame Australia
+2023,10800,Domestic,Western Australia,The University of Western Australia
+2023,6752,International,Western Australia,The University of Western Australia
+2023,18537,Domestic,Western Australia,Victoria University
+2023,49678,International,Western Australia,Victoria University
