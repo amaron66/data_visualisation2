@@ -90,18 +90,11 @@
     </div>
   </section>
 
-  <!-- 3) Choropleth (full width) -->
+  <! 3) Map 
+  
+  <!-- JSON-coded map -->
   <section class="card">
-    <div class="title"><h2>3) Enrolments by state (choropleth)</h2></div>
-    <iframe class="frame" loading="lazy" src="state_chloropeth.html" title="State choropleth"></iframe>
-    <div class="narr">
-      The map localises totals. Drag the year slider to see spatial shifts and identify standout states (fast growth, slow recovery) to explore further below.
-    </div>
-  </section>
-
-  <!-- JSON-coded map (new) -->
-  <section class="card">
-    <div class="title"><h2>Enrolments by State — JSON map</h2></div>
+    <div class="title"><h2>Enrolments by State </h2></div>
     <div id="json-map" class="frame" style="height:560px"></div>
     <div class="narr">
       Same state totals, rendered directly from a Vega-Lite JSON spec (no separate HTML). Uses ABS boundaries and joins your enrolments CSV.
