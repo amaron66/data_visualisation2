@@ -1,0 +1,48 @@
+<!doctype html><meta charset="utf-8"><title>Course Mix — Year vs Year</title>
+<div id="course-mix"></div>
+<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+<script>
+const CSV="./course_level_by_year.csv";  // swap to RAW URL if hosted on GitHub
+vegaEmbed("#course-mix",{
+  "$schema":"https://vega.github.io/schema/vega-lite/v5.json",
+  "title":{"text":"Course-Level Composition — Year vs Year","subtitle":"Pick two years to compare mix"},
+  "params":[
+    {"name":"yrA","value":2019,"bind":{"input":"range","min":2017,"max":2024,"step":1}},
+    {"name":"yrB","value":2024,"bind":{"input":"range","min":2017,"max":2024,"step":1}}
+  ],
+  "data":{"url":CSV,"format":{"type":"csv"}},
+  "transform":[
+    {"calculate":"toNumber(datum.Year)","as":"YearNum"},
+    {"calculate":"toNumber(datum.Commencements)","as":"CommNum"},
+    {"filter":"isValid(datum.YearNum)&&isValid(datum.CommNum)"},
+    {"filter":"datum.Category!=='Total'"},
+    {"filter":"datum.YearNum==yrA || datum.YearNum==yrB"},
+    {"aggregate":[{"op":"sum","field":"CommNum","as":"Count"}],"groupby":["YearNum","Category"]},
+    {"joinaggregate":[{"op":"sum","field":"Count","as":"TotalYear"}],"groupby":["YearNum"]},
+    {"calculate":"datum.Count/datum.TotalYear","as":"Share"}
+  ],
+  "layer":[
+    {"mark":{"type":"bar"},
+     "params":[{"name":"pick","select":{"type":"point","fields":["Category"],"on":"click","empty":"all"},"bind":"legend"}],
+     "encoding":{
+       "x":{"field":"YearNum","type":"ordinal","title":null, "sort":"ascending"},
+       "y":{"aggregate":"sum","field":"Count","type":"quantitative","stack":"normalize",
+            "axis":{"title":"Share of commencements","format":".0%"}},
+       "color":{"field":"Category","type":"nominal","title":"Course level"},
+       "opacity":{"condition":{"param":"pick","value":1,"empty":true},"value":0.25},
+       "tooltip":[
+         {"field":"YearNum","type":"quantitative","title":"Year"},
+         {"field":"Category","type":"nominal"},
+         {"field":"Count","type":"quantitative","title":"Commencements","format":",d"},
+         {"field":"Share","type":"quantitative","title":"Share","format":".1%"}] }},
+    {"mark":{"type":"text","dy":-6,"fontWeight":"600","color":"#374151"},
+     "transform":[{"aggregate":[{"op":"sum","field":"Count","as":"Total"}],"groupby":["YearNum"]}],
+     "encoding":{"x":{"field":"YearNum","type":"ordinal"},"y":{"value":0},
+                 "text":{"field":"Total","type":"quantitative","format":",d"}}}
+  ],
+  "width":960,"height":360,
+  "config":{"view":{"stroke":null},"legend":{"orient":"top","labelLimit":300},"axis":{"grid":true}}
+},{actions:false});
+</script>

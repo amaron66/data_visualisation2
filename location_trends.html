@@ -1,0 +1,41 @@
+<!doctype html><meta charset="utf-8">
+<div id="trend"></div>
+<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+<script>
+vegaEmbed("#trend",{
+  "$schema":"https://vega.github.io/schema/vega-lite/v5.json",
+  "data":{"url":"./domestic_international_by_state_institution_year.csv"},
+  "params":[
+    {"name":"st","value":"Victoria","bind":{"input":"select","options":[
+      "New South Wales","Victoria","Queensland","Western Australia","South Australia",
+      "Tasmania","Northern Territory","Australian Capital Territory","Multi-State"
+    ]}}
+  ],
+  "transform":[
+    {"calculate":
+      "datum.State=='NSW'?'New South Wales':datum.State=='VIC'?'Victoria':" +
+      "datum.State=='QLD'?'Queensland':datum.State=='WA'?'Western Australia':" +
+      "datum.State=='SA'?'South Australia':datum.State=='TAS'?'Tasmania':" +
+      "datum.State=='NT'?'Northern Territory':datum.State=='ACT'?'Australian Capital Territory':datum.State",
+     "as":"StateFull"},
+    {"filter":"datum.StateFull==st"},
+    {"aggregate":[{"op":"sum","field":"Enrolments","as":"Cnt"}],"groupby":["Year","Citizenship"]}
+  ],
+  "mark":{"type":"line","point":true},
+  "encoding":{
+    "x":{"field":"Year","type":"quantitative",
+         "axis":{"title":"Year","format":"d","tickMinStep":1}},
+    "y":{"field":"Cnt","type":"quantitative","title":"Enrolments"},
+    "color":{"field":"Citizenship","type":"nominal"},
+    "tooltip":[
+      {"field":"Year","type":"quantitative","title":"Year","format":"d"},
+      {"field":"Citizenship","type":"nominal"},
+      {"field":"Cnt","type":"quantitative","title":"Enrolments","format":",d"}
+    ]
+  },
+  "title":{"text":{"expr":"'Domestic vs International — '+st"}},
+  "width":960,"height":360,"config":{"view":{"stroke":null}}
+},{actions:false});
+</script>

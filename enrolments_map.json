@@ -1,0 +1,37 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Enrolments by State",
+  "width": 800,
+  "height": 400,
+  "projection": {"type": "mercator"},
+  "data": {
+    "url": "STE_2021_AUST_GDA2020.json",
+    "format": {"type": "topojson", "feature": "STE_2021_AUST_GDA2020"}
+  },
+  "transform": [
+    {
+      "lookup": "properties.STE_NAME21",
+      "from": {
+        "data": {
+          "url": "./state_institution_enrolments_2020_2023.csv"
+        },
+        "key": "State",
+        "fields": ["Enrolments"]
+      }
+    },
+    { "calculate": "toNumber(datum.Enrolments) + 0.1", "as": "Active Cases" }
+  ],
+  "mark": {"type": "geoshape"},
+  "encoding": {
+"color": {
+  "field": "Active Cases",
+  "type": "quantitative",
+  "scale": { "domain": [0, 50000], "range": ["#dbeafe", "#1e3a8a"] },
+  "legend": { "title": "Enrolments" }
+},
+    "tooltip": [
+      {"field": "properties.STE_NAME21", "type": "nominal", "title": "State"},
+      {"field": "Enrolments", "type": "quantitative", "title": "Enrolments"}
+    ]
+  }
+}

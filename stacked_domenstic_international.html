@@ -1,0 +1,53 @@
+<!doctype html><meta charset="utf-8"><div id="vis"></div>
+<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+<script>
+const U="./domestic_international_by_state_institution_year.csv";
+vegaEmbed("#vis",{
+  "$schema":"https://vega.github.io/schema/vega-lite/v5.json","data":{"url":U},
+  "params":[{"name":"yr","value":2023,"bind":{"input":"range","min":2018,"max":2023,"step":1}}],
+  "layer":[
+    /* States */
+    {"transform":[
+      {"calculate":"toNumber(datum.Year)","as":"Y"},{"filter":"datum.Y==yr"},
+      {"filter":"lower(datum.State)!='total' && lower(datum.State)!='grand total'"},
+      {"aggregate":[{"op":"sum","field":"Enrolments","as":"Cnt"}],"groupby":["State","Citizenship"]},
+      {"joinaggregate":[{"op":"sum","field":"Cnt","as":"Tot"}],"groupby":["State"]},
+      {"calculate":"0","as":"OrderKey"}  /* states first */
+    ],
+    "mark":"bar",
+    "encoding":{
+      "x":{"field":"State","type":"nominal","axis":{"title":null},
+           "sort":{"field":"OrderKey","order":"ascending"}},
+      "y":{"aggregate":"sum","field":"Cnt","type":"quantitative","stack":"normalize",
+           "axis":{"title":"Share","format":".0%"}},
+      "color":{"field":"Citizenship","type":"nominal"},
+      "tooltip":[{"field":"State","title":"State"},{"field":"Citizenship"},
+                 {"field":"Cnt","title":"Enrolments","format":",d"}]}},
+
+    /* Grand Total */
+    {"transform":[
+      {"calculate":"toNumber(datum.Year)","as":"Y"},{"filter":"datum.Y==yr"},
+      {"filter":"lower(datum.State)!='total' && lower(datum.State)!='grand total'"},
+      {"aggregate":[{"op":"sum","field":"Enrolments","as":"Cnt"}],"groupby":["Citizenship"]},
+      {"calculate":"'Grand Total'","as":"State"},
+      {"joinaggregate":[{"op":"sum","field":"Cnt","as":"Tot"}],"groupby":["State"]},
+      {"calculate":"1","as":"OrderKey"}  /* force last */
+    ],
+    "mark":"bar",
+    "encoding":{
+      "x":{"field":"State","type":"nominal",
+           "sort":{"field":"OrderKey","order":"ascending"}},
+      "y":{"aggregate":"sum","field":"Cnt","type":"quantitative","stack":"normalize"},
+      "color":{"field":"Citizenship","type":"nominal"},
+      "tooltip":[{"field":"State"},{"field":"Citizenship"},
+                 {"field":"Cnt","title":"Enrolments","format":",d"}]}}
+  ],
+  "title":{"text":{"expr":"'Domestic vs International by State — '+toString(yr)"}},
+  "width":960,"height":360,
+  "config":{"view":{"stroke":null},"axis":{"labelFontWeight":"bold","titleFontWeight":"bold"}}
+},{actions:false});
+</script>
+
+
