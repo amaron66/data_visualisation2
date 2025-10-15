@@ -1,0 +1,165 @@
+<!doctype html>
+<meta charset="utf-8" />
+<title>Changing Nature of University Admissions — Dashboard</title>
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+
+<!-- Vega libraries (needed for the JSON-coded chart) -->
+<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+<style>
+  :root{--mx:1400px;--gap:14px;--muted:#6b7280;--border:#e5e7eb}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Helvetica,Arial,sans-serif;background:#fff;color:#111}
+  header,main,footer{max-width:var(--mx);margin:auto;padding:14px}
+  header h1{margin:6px 0 8px;font-size:24px}
+  header p.sub{margin:0 0 10px;color:#374151;font-size:14px;line-height:1.5;background:#f9fafb;border:1px solid var(--border);padding:12px;border-radius:10px;text-align:center}
+
+  .card{border:1px solid var(--border);border-radius:12px;background:#fff;padding:12px;margin:var(--gap) 0}
+  .title{display:flex;justify-content:space-between;align-items:center;margin:0 0 10px}
+  .title h2{font-size:18px;margin:0}
+
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap)}
+  .row12{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap)}
+  .row-3-1{grid-template-columns:3fr 1fr} /* 3/4 + 1/4 for chart 2 */
+
+  .full{grid-column:1/-1}
+
+  /* Base iframe heights */
+  .frame{width:100%;height:640px;border:0;border-radius:10px;background:#fff}
+  .frame.med{height:600px}
+  .frame.sm{height:520px}
+
+  /* Readable, centered annotations */
+  .narr{margin-top:10px;font-size:15px;line-height:1.55;color:#1f2937;text-align:center}
+  .aside{display:flex;align-items:center;justify-content:center;border:1px solid var(--border);border-radius:10px;padding:14px;background:#fafafa}
+  .muted{color:var(--muted);font-size:12.5px;margin-top:8px;text-align:center}
+
+  /* squash only charts 4 & 5 vertically (no narrowing) */
+  .wrap-sm{height:450px; overflow:visible}
+  .wrap-sm > .frame.sm{
+    transform: scale(.75);
+    transform-origin: top center;
+    height:520px;
+    width:180%;
+  }
+
+  @media (max-width: 1000px){
+    .row2,.row12{grid-template-columns:1fr}
+    .frame{height:600px}
+    .wrap-sm{height:420px}
+    .wrap-sm > .frame.sm{width:120%}
+  }
+</style>
+
+<header>
+  <h1>Changing Nature of University Admissions — Australia</h1>
+  <p class="sub">
+    From <b>macro trends</b> (course levels over time) to <b>where</b> change occurs (states), then the <b>why</b> (domestic vs international mix and trends),
+    and finally an <b>equity lens</b> (gender). Use each chart’s controls to explore specific periods and places.
+  </p>
+</header>
+
+<main>
+
+  <!-- 1) Course levels over time (full width) -->
+  <section class="card">
+    <div class="title"><h2>1) Course levels over time</h2></div>
+    <iframe class="frame" loading="lazy" src="Course%20level%20enrolments%20over%20time.html" title="Course levels over time"></iframe>
+    <div class="narr">
+      This overview sets the national context. Use the legend to isolate levels (e.g., Bachelor vs Postgraduate) and the lower brush to focus the years you care about.
+      Look for level-specific surges or contractions and whether they move together or diverge.
+    </div>
+  </section>
+
+  <!-- 2) Course mix — Year vs Year: chart 3/4 width, annotation 1/4 width -->
+  <section class="card">
+    <div class="title"><h2>2) Course mix — Year vs Year</h2></div>
+    <div class="row12 row-3-1">
+      <iframe class="frame med" loading="lazy" src="Side_by_side_years.html" title="Course mix year vs year"></iframe>
+      <div class="aside">
+        <div>
+          <div class="narr">
+            Normalised, side-by-side bars show <b>structural shifts</b> between two selected years.
+            Totals above the bars keep absolute scale visible. Use this to summarise which levels gained share, which declined, and by how much.
+          </div>
+          <div class="muted">Tip: Compare a pre-shock year with the latest year, then cross-check in the time-series above.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3) Choropleth (full width) -->
+  <section class="card">
+    <div class="title"><h2>3) Enrolments by state (choropleth)</h2></div>
+    <iframe class="frame" loading="lazy" src="state_chloropeth.html" title="State choropleth"></iframe>
+    <div class="narr">
+      The map localises totals. Drag the year slider to see spatial shifts and identify standout states (fast growth, slow recovery) to explore further below.
+    </div>
+  </section>
+
+  <!-- JSON-coded map (new) -->
+  <section class="card">
+    <div class="title"><h2>Enrolments by State — JSON map</h2></div>
+    <div id="json-map" class="frame" style="height:560px"></div>
+    <div class="narr">
+      Same state totals, rendered directly from a Vega-Lite JSON spec (no separate HTML). Uses ABS boundaries and joins your enrolments CSV.
+    </div>
+  </section>
+
+  <!-- 4 & 5) Domestic vs International pair (squashed vertically to avoid page scroll) -->
+  <section class="card">
+    <div class="title"><h2>4–5) Domestic vs International — mix and trend</h2></div>
+    <div class="row2">
+      <div class="wrap-sm">
+        <iframe class="frame sm" loading="lazy" src="stacked_domenstic_international.html" title="Domestic vs International by state"></iframe>
+      </div>
+      <div class="wrap-sm">
+        <iframe class="frame sm" loading="lazy" src="location_trends.html" title="State trend — Domestic vs International"></iframe>
+      </div>
+    </div>
+    <div class="narr">
+      Together, these two views explain <b>why</b> a state looks the way it does on the map. The stacked chart compares <b>within-year mix</b> across states,
+      while the line chart traces each state’s <b>trajectory</b> through time. Use them jointly to spot high international dependence and whether it’s rising or normalising.
+    </div>
+  </section>
+
+  <!-- 6) Institution heatmap (full width) -->
+  <section class="card">
+    <div class="title"><h2>6) Institution heatmap — % International</h2></div>
+    <iframe class="frame" loading="lazy" src="institution_heatmap.html" title="Institution heatmap"></iframe>
+    <div class="narr">
+      Filter by state and adjust the Top-N list to keep it readable. Colour shows the <b>international share</b> by year so you can scan which institutions are most exposed and how that has evolved.
+    </div>
+  </section>
+
+  <!-- 7) Gender donut (half width) with inline narrative on the right -->
+  <section class="card">
+    <div class="title"><h2>7) Gender share of commencements</h2></div>
+    <div class="row12 row-3-1">
+      <iframe class="frame med" loading="lazy" src="Genders%20in%20university.html" title="Gender share"></iframe>
+      <div class="aside">
+        <div>
+          <div class="narr">
+            An equity perspective: on-chart labels show <b>counts and shares</b> for the selected year. Read it alongside course mix to gauge whether changing intakes align with balance goals.
+          </div>
+          <div class="muted">Tip: If available, add field-of-education by gender as small multiples for deeper insight.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="muted">
+  Data notes: Figures respect each chart’s filters. “Multi-State” and other roll-ups are excluded where they would double-count. Hover tooltips show exact values.
+</footer>
+
+<!-- Embed the JSON map spec -->
+<script>
+  // If all files are in the same folder as index.html, this relative path will work.
+  // Otherwise, point to the raw GitHub URL for the JSON.
+  vegaEmbed("#json-map", "enrolments_map.json", {actions:false})
+    .catch(err => console.error("Map embed failed:", err));
+</script>
