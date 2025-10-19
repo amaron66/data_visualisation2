@@ -16,10 +16,12 @@
 <body>
 <div id="vis"></div>
 <script>
+const RAW_CSV = "https://raw.githubusercontent.com/amaron66/data_visualisation2/main/Gender_by_Year.csv";
+
 const spec={
   "$schema":"https://vega.github.io/schema/vega-lite/v5.json",
   "title":{"text":"Gender Share of University Commencements","subtitle":"Use the slider to choose a year","anchor":"start","fontSize":20,"subtitleFontSize":13},
-  "data":{"url":"./Gender_by_Year.csv","format":{"type":"csv"}},
+  "data":{"url":RAW_CSV,"format":{"type":"csv"}},
   "transform":[
     {"calculate":"toNumber(datum.Year)","as":"YearNum"},
     {"calculate":"toNumber(datum.Commencements)","as":"CommNum"},
