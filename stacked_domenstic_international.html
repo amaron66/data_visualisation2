@@ -1,4 +1,6 @@
-<!doctype html><meta charset="utf-8"><div id="vis"></div>
+<!doctype html><meta charset="utf-8">
+<style>.vega-bindings, .vega-bindings label, .vega-bindings .vega-bind-name{color:#fff}</style>
+<div id="vis"></div>
 <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
@@ -6,11 +8,11 @@
 const U="./domestic_international_by_state_institution_year.csv";
 vegaEmbed("#vis",{
   "$schema":"https://vega.github.io/schema/vega-lite/v5.json","data":{"url":U},
-  "params":[{"name":"yr","value":2023,"bind":{"input":"range","min":2018,"max":2023,"step":1}}],
+  "params":[{"name":"Years","value":2023,"bind":{"input":"range","min":2018,"max":2023,"step":1}}],
   "layer":[
     /* States */
     {"transform":[
-      {"calculate":"toNumber(datum.Year)","as":"Y"},{"filter":"datum.Y==yr"},
+      {"calculate":"toNumber(datum.Year)","as":"Y"},{"filter":"datum.Y==Years"},
       {"filter":"lower(datum.State)!='total' && lower(datum.State)!='grand total'"},
       {"aggregate":[{"op":"sum","field":"Enrolments","as":"Cnt"}],"groupby":["State","Citizenship"]},
       {"joinaggregate":[{"op":"sum","field":"Cnt","as":"Tot"}],"groupby":["State"]},
@@ -28,7 +30,7 @@ vegaEmbed("#vis",{
 
     /* Grand Total */
     {"transform":[
-      {"calculate":"toNumber(datum.Year)","as":"Y"},{"filter":"datum.Y==yr"},
+      {"calculate":"toNumber(datum.Year)","as":"Y"},{"filter":"datum.Y==Years"},
       {"filter":"lower(datum.State)!='total' && lower(datum.State)!='grand total'"},
       {"aggregate":[{"op":"sum","field":"Enrolments","as":"Cnt"}],"groupby":["Citizenship"]},
       {"calculate":"'Grand Total'","as":"State"},
@@ -44,10 +46,11 @@ vegaEmbed("#vis",{
       "tooltip":[{"field":"State"},{"field":"Citizenship"},
                  {"field":"Cnt","title":"Enrolments","format":",d"}]}}
   ],
-  "title":{"text":{"expr":"'Domestic vs International by State — '+toString(yr)"}},
-  "width":960,"height":360,
+  "title":{"text":{"expr":"'Domestic vs International by State — '+toString(Years)"}},
+  "width":960,"height":340,
   "config":{"view":{"stroke":null},"axis":{"labelFontWeight":"bold","titleFontWeight":"bold"}}
 },{actions:false});
 </script>
+
 
 

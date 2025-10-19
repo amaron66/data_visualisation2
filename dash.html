@@ -1,0 +1,154 @@
+<!doctype html>
+<meta charset="utf-8" />
+<title>Changing Nature of University Admissions — Dashboard</title>
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+
+<!-- Font -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;550;700&display=swap" rel="stylesheet">
+
+<!-- Vega -->
+<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+<style>
+  :root{
+    --mx:1200px; --gap:14px; --bg:#131c31; --text:#e9eef7; --muted:#b5c1d6;
+    --card:#19233d; --card-border:#2a3856; --accent:#84b9ff; --chip:#10264a; --chip-border:#29517e;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Helvetica,Arial,sans-serif;line-height:1.6;font-size:17px}
+  header,main,footer{max-width:var(--mx);margin:auto;padding:16px}
+
+  /* Utility: narrow lines (~≤10 words/line) & centered */
+  .narrow{max-width:40ch;margin:12px auto}
+
+  header h1{margin:4px 0 10px;font-size:30px;letter-spacing:.2px;font-weight:700}
+  header p.sub{color:var(--text);font-size:16px;background:var(--chip);border:1px solid var(--chip-border);
+    padding:14px;border-radius:12px;text-align:center}
+  header p.sub.narrow{margin:0 auto}
+
+  .card{border:1px solid var(--card-border);border-radius:14px;background:var(--card);padding:16px;margin:var(--gap) 0}
+  .title{display:flex;justify-content:space-between;align-items:center;margin:0 0 10px}
+  .title h2{font-size:22px;margin:0;color:var(--accent);font-weight:700}
+
+  .split{display:grid;grid-template-columns:3fr 1.2fr;gap:var(--gap)}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap)}
+  .row2 > *, .split > *{min-width:0}
+
+  iframe.frame{display:block;width:100%;border:0;border-radius:12px;background:#0f1f3a}
+  .frame.xl{height:860px} .frame.lg{height:760px} .frame{height:700px} .frame.med{height:620px} .frame.sm{height:560px}
+
+  .narr{font-size:17px;color:var(--text);background:var(--chip);border:1px solid var(--chip-border);border-radius:12px;padding:16px}
+  .narr b{font-weight:700}
+
+  #json-map-wrap{display:flex;justify-content:center}
+  #json-map{width:100%;max-width:1350px;height:960px;border-radius:12px;background:#0f1f3a;border:0}
+
+  @media (max-width:1100px){
+    .split,.row2{grid-template-columns:1fr}
+    .frame.xl{height:820px}.frame.lg{height:720px}.frame{height:660px}.frame.med{height:600px}.frame.sm{height:560px}
+    #json-map{height:900px}
+  }
+  @media (max-width:720px){
+    header,main,footer{padding:12px}
+    header h1{font-size:26px}.title h2{font-size:20px}.narr{font-size:16px}
+    .frame.xl{height:780px}.frame.lg{height:700px}.frame{height:640px}.frame.med{height:580px}.frame.sm{height:540px}
+    #json-map{height:840px}
+  }
+</style>
+
+<header>
+  <h1>Changing Nature of University Admissions — Australia</h1>
+  <p class="sub narrow">
+    Australia’s university admissions are evolving.          
+    The level of study, by state, by the balance of domestic and international students, and by gender. This visualisation traces those shifts from an overview big picture down to specific states and institutions so you can explore what changed, where did it change, and why did it change.
+  </p>
+</header>
+
+<main>
+  <!-- 1) -->
+  <section class="card">
+    <div class="title"><h2>1) Course enrolment levels over time</h2></div>
+    <iframe class="frame xl" src="Course%20level%20enrolments%20over%20time.html" title="Course levels over time"></iframe>
+    <div class="narr narrow">
+      Start with the time-series of course types. Use the legend and the year brush to highlight key periods and degree classifications. Look for inflection points (e.g., Bachelor decreasing while Postgraduate grows) and whether levels move with positive correlations. This chart shows the national overview.
+    </div>
+  </section>
+
+  <!-- 2) -->
+  <section class="card">
+    <div class="title"><h2>2) Course mixtures - Compare years</h2></div>
+    <div class="split">
+      <iframe class="frame med" src="Side_by_side_years.html" title="Course mix year vs year"></iframe>
+      <div class="narr">
+        Use the year vs year stacked normalised bars to compare a baseline with a chosen year. Because bars are normalised, you see share shifts immediately: which types of degrees are growing in relative popularity. Then jump back to the time-series to see how that change unfolded.
+      </div>
+    </div>
+  </section>
+
+  <!-- 3) -->
+  <section class="card">
+    <div class="title"><h2>3) Enrolments by State</h2></div>
+    <div id="json-map-wrap"><div id="json-map"></div></div>
+    <div class="narr narrow">
+      The map connects national proportions to each state. Hover to see State totals and percentage of national enrolments. 
+    </div>
+  </section>
+
+  <!-- 4–5 stacked with shared narrow text -->
+  <section class="card">
+    <div class="title"><h2>4–5) Domestic vs International</h2></div>
+    <iframe class="frame sm" src="stacked_domenstic_international.html" title="Domestic vs International by state (mix)"></iframe>
+    <div class="narr narrow" style="margin:12px auto">
+      Read the above and below charts together:
+
+The stacked bars show each state’s year by year composition of domestic vs international students.
+
+The lines show the change over time, with the state selection being filterable.
+    </div>
+    <iframe class="frame sm" src="location_trends.html" title="State trend — Domestic vs International (momentum)"></iframe>
+  </section>
+
+  <!-- 6) -->
+  <section class="card">
+    <div class="title"><h2>6) Institution heatmap</h2></div>
+    <iframe class="frame lg" src="institution_heatmap.html" title="Institution heatmap"></iframe>
+    <div class="narr narrow" style="margin-top:12px">
+      This heatmap allows for easy analysis of domestic vs international enrolments at the institution level. Start by selecting a state or viewing all states. The width of each block represents total enrolments for that institution, while the split shows the domestic (bottom) and international (top) shares. Colour differentiates institutions or states. Use the year slider to see how these dynamics have evolved over the years.
+    </div>
+  </section>
+
+  <!-- 7) -->
+  <section class="card">
+    <div class="title"><h2>7) Gender share of enrolments</h2></div>
+    <div class="split">
+      <iframe class="frame med" src="Genders%20in%20university.html" title="Gender share"></iframe>
+      <div class="narr">
+       The gender donut summarises who is enrolling in the chosen year. Read it alongside level shifts and state patterns to see whether growth areas are balancing or widening gender representation. 
+      </div>
+    </div>
+  </section>
+
+  <!-- NEW: Summary card (placed above credits) -->
+  <section class="card">
+    <div class="title"><h2>Summary — bringing it together</h2></div>
+    <div class="narr narrow">
+      The changing landscape of University enrolments comes into focus: How the student mix is shifting, where people are studying, and what they are studying. Use this visualisation to explore across time and location to separate temporary swings from practical trends. Consider how these shifts might influence future university enrolments.
+  </section>
+</main>
+
+<footer class="muted narrow" style="padding:10px 16px">
+  Created 19/10/2024 by Ayden Maron for FIT3179 Data Visualisation 2, Monash University.
+  Sources taken from the Australian Department of Education 
+</footer>
+
+<script>
+  window.addEventListener('DOMContentLoaded', ()=> {
+    vegaEmbed("#json-map","enrolments_map.json",{actions:false})
+      .catch(err=>console.error("Map embed failed:",err));
+  });
+</script>

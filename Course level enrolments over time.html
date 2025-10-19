@@ -7,127 +7,81 @@
   <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-  <style>
-    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Helvetica,Arial,sans-serif}
-    #vis{max-width:1100px;margin:24px auto;padding:8px}
-  </style>
+  <style>body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Helvetica,Arial,sans-serif}#vis{max-width:1100px;margin:24px auto;padding:8px}</style>
 </head>
 <body>
   <div id="vis"></div>
   <script>
-  const CSV_URL = "./course_level_by_year.csv"; // or use the RAW URL if not on Pages
-
-  const spec = {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": { 
-      "text": "Commencements by Course Level in Australia (2017–2024)",
-      "subtitle": "Click legend to filter • Drag below to filter years"
-    },
-    "data": {"url": CSV_URL, "format": {"type": "csv"}},
-    "transform": [
-      {"calculate": "toNumber(datum.Year)", "as": "YearNum"},
-      {"calculate": "toNumber(datum.Commencements)", "as": "CommNum"},
-      {"filter": "isValid(datum.YearNum) && isValid(datum.CommNum)"},
-      {"filter": "datum.Category !== 'Total'"}
+  const CSV_URL="./course_level_by_year.csv";
+  const DOMAIN=["Bachelor","Sub-Bachelor","Postgraduate (Other)","Postgraduate (Research)","Enabling","Non-award/Microcredentials"];
+  const RANGE=["#4C78A8","#F2C12E","#9E77B0","#72B7B2","#8C6D31","#B279A2"]; // no red or green
+  const spec={
+    "$schema":"https://vega.github.io/schema/vega-lite/v5.json",
+    "title":{"text":"Commencements by Course Type in Australia","subtitle":"Click courses to filter • Use the brush to filter years"},
+    "data":{"url":CSV_URL,"format":{"type":"csv"}},
+    "transform":[
+      {"calculate":"toNumber(datum.Year)","as":"YearNum"},
+      {"calculate":"toNumber(datum.Commencements)","as":"CommNum"},
+      {"filter":"isValid(datum.YearNum) && isValid(datum.CommNum)"},
+      {"filter":"datum.Category !== 'Total'"}
     ],
-    "vconcat": [
+    "vconcat":[
       {
-        "width": 1060,
-        "height": 360,
-        "transform": [
-          {"filter": {"param": "brush"}},        // brush filters on YearNum
-          {"filter": {"param": "catSelect"}}     // legend filter
-        ],
-        /* ---- only change in the TOP chart: wrap into a layer to add the hover rule + tooltip ---- */
-        "layer": [
+        "width":1050,"height":520,
+        "transform":[{"filter":{"param":"brush"}}],
+        "layer":[
           {
-            "mark": {"type": "line", "point": true},
-            "encoding": {
-              "x": {
-                "field": "YearNum", "type": "quantitative",
-                "axis": {"title": "Year", "tickMinStep": 1, "format": "d"},
-                "scale": {"nice": false}
-              },
-              "y": {
-                "aggregate": "sum", "field": "CommNum", "type": "quantitative",
-                "title": "Commencements"
-              },
-              "color": {"field": "Category", "type": "nominal", "title": "Category"},
-              "tooltip": [
-                {"field": "YearNum", "type": "quantitative", "title": "Year", "format": "d"},
-                {"field": "Category", "type": "nominal"},
-                {"aggregate": "sum", "field": "CommNum", "type": "quantitative", "title": "Commencements", "format": ",d"}
+            "mark":{"type":"line","point":true},
+            "encoding":{
+              "x":{"field":"YearNum","type":"quantitative","axis":{"title":"Year","tickMinStep":1,"format":"d"},"scale":{"nice":false}},
+              "y":{"aggregate":"sum","field":"CommNum","type":"quantitative","title":"Commencements"},
+              "color":{"field":"Category","type":"nominal","title":"Category","scale":{"domain":DOMAIN,"range":RANGE}},
+              "opacity":{"condition":{"param":"catSelect","value":1},"value":0.15},
+              "tooltip":[
+                {"field":"YearNum","type":"quantitative","title":"Year","format":"d"},
+                {"field":"Category","type":"nominal"},
+                {"aggregate":"sum","field":"CommNum","type":"quantitative","title":"Commencements","format":",d"}
               ]
             },
-            "params": [{
-              "name": "catSelect",
-              "select": {"type": "point", "fields": ["Category"], "on": "click", "empty": "all"},
-              "bind": "legend"
-            }]
+            "params":[{"name":"catSelect","select":{"type":"point","fields":["Category"],"on":"click","empty":"all"},"bind":"legend"}]
           },
           {
-            /* vertical hover line with tooltip for ALL categories at that year */
-            "mark": {"type": "rule", "color": "#999"},
-            "params": [{
-              "name": "hover",
-              "select": {"type": "point", "encodings": ["x"], "on": "mousemove", "clear": "mouseout", "nearest": true}
-            }],
-            "transform": [
-              {"filter": {"param": "hover"}},
-              /* pivot categories into columns so one tooltip shows every category's number at the hovered year */
-              {"pivot": "Category", "value": "CommNum", "groupby": ["YearNum"]}
-            ],
-            "encoding": {
-              "x": {"field": "YearNum", "type": "quantitative"},
-              "tooltip": [
-                {"field": "YearNum", "type": "quantitative", "title": "Year", "format": "d"},
-                {"field": "Bachelor", "type": "quantitative", "format": ",d"},
-                {"field": "Sub-Bachelor", "type": "quantitative", "format": ",d"},
-                {"field": "Postgraduate (Other)", "type": "quantitative", "format": ",d"},
-                {"field": "Postgraduate (Research)", "type": "quantitative", "format": ",d"},
-                {"field": "Enabling", "type": "quantitative", "format": ",d"},
-                {"field": "Non-award/Microcredentials", "type": "quantitative", "format": ",d"}
+            "mark":{"type":"rule","color":"#999"},
+            "params":[{"name":"hover","select":{"type":"point","encodings":["x"],"on":"mousemove","clear":"mouseout","nearest":true}}],
+            "transform":[{"filter":{"param":"hover"}},{"pivot":"Category","value":"CommNum","groupby":["YearNum"]}],
+            "encoding":{
+              "x":{"field":"YearNum","type":"quantitative"},
+              "tooltip":[
+                {"field":"YearNum","type":"quantitative","title":"Year","format":"d"},
+                {"field":"Bachelor","type":"quantitative","format":",d"},
+                {"field":"Sub-Bachelor","type":"quantitative","format":",d"},
+                {"field":"Postgraduate (Other)","type":"quantitative","format":",d"},
+                {"field":"Postgraduate (Research)","type":"quantitative","format":",d"},
+                {"field":"Enabling","type":"quantitative","format":",d"},
+                {"field":"Non-award/Microcredentials","type":"quantitative","format":",d"}
               ]
             }
           }
         ]
-        /* ---- end of the only change in the top chart ---- */
       },
       {
-        "width": 1060,
-        "height": 70,
-        "transform": [
-          {"aggregate": [{"op": "sum", "field": "CommNum", "as": "Total"}], "groupby": ["YearNum"]}
-        ],
-        "mark": {"type": "line"},
-        "encoding": {
-          "x": {
-            "field": "YearNum", "type": "quantitative",
-            "axis": {"title": "", "tickMinStep": 1, "format": "d"},
-            "scale": {"nice": false}
-          },
-          "y": {"field": "Total", "type": "quantitative", "title": "Total"},
-          "tooltip": [
-            {"field": "YearNum", "type": "quantitative", "title": "Year", "format": "d"},
-            {"field": "Total", "type": "quantitative", "format": ",d"}
+        "width":1050,"height":80,
+        "transform":[{"aggregate":[{"op":"sum","field":"CommNum","as":"Total"}],"groupby":["YearNum"]}],
+        "mark":{"type":"line"},
+        "encoding":{
+          "x":{"field":"YearNum","type":"quantitative","axis":{"title":"","tickMinStep":1,"format":"d"},"scale":{"nice":false}},
+          "y":{"field":"Total","type":"quantitative","title":"Total"},
+          "tooltip":[
+            {"field":"YearNum","type":"quantitative","title":"Year","format":"d"},
+            {"field":"Total","type":"quantitative","format":",d"}
           ]
         },
-        "params": [
-          {
-            "name": "brush",
-            "select": {"type": "interval", "encodings": ["x"]}
-          }
-        ]
+        "params":[{"name":"brush","select":{"type":"interval","encodings":["x"]}}]
       }
     ],
-    "config": {
-      "legend": {"orient": "top", "labelLimit": 300},
-      "axis": {"grid": true, "tickBand": "center"},
-      "view": {"stroke": null}
-    }
+    "config":{"legend":{"orient":"top","labelLimit":300},"axis":{"grid":true,"tickBand":"center"},"view":{"stroke":null}}
   };
-
-  vegaEmbed("#vis", spec, {actions:false});
+  vegaEmbed("#vis",spec,{actions:false});
   </script>
 </body>
 </html>

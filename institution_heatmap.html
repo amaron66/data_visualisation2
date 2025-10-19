@@ -1,79 +1,80 @@
-<!doctype html><meta charset="utf-8"><div id="mosaic"></div>
+<!doctype html>
+<meta charset="utf-8">
+<title>Mosaic — Domestic vs International</title>
+<style>
+  body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Helvetica,Arial,sans-serif}
+  #mosaic{max-width:1100px;margin:20px auto;padding:8px}
+  .vega-bindings,.vega-bindings label,.vega-bindings .vega-bind-name{color:#fff}
+</style>
+<div id="mosaic"></div>
 <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 <script>
 const U="./domestic_international_by_state_institution_year.csv";
+const OPS=["All States","New South Wales","Victoria","Queensland","Western Australia","South Australia","Tasmania","Northern Territory","Australian Capital Territory","Multi-State"];
+
+/* Palette with NO reds or greens (blues, purples, golds, browns, greys) */
+const PALETTE=["#4C78A8","#F2C12E","#9E77B0","#8C6D31","#B279A2","#AAB7C6","#6C7A89","#5B8FA8","#D4A6C8","#A67C52"];
+
+const BASE = [
+  {calculate:"datum.State=='NSW'?'New South Wales':datum.State=='VIC'?'Victoria':datum.State=='QLD'?'Queensland':datum.State=='WA'?'Western Australia':datum.State=='SA'?'South Australia':datum.State=='TAS'?'Tasmania':datum.State=='NT'?'Northern Territory':datum.State=='ACT'?'Australian Capital Territory':datum.State",as:"StateFull"},
+  {filter:"toNumber(datum.Year)==yearSel"}
+];
+
+const layer = (national)=>({
+  transform: [
+    ...BASE,
+    {filter: national ? "stateSel==='All States'" : "stateSel!=='All States' && datum.StateFull==stateSel"},
+    ...(national ? [{filter:"lower(datum.StateFull)!='grand total' && lower(datum.StateFull)!='total'"}] : []),
+    {aggregate:[{op:"sum",field:"Enrolments",as:"Cnt"}], groupby:[national?"StateFull":"Institution","Citizenship"]},
+    {pivot:"Citizenship", value:"Cnt", groupby:[national?"StateFull":"Institution"]},
+    {calculate:"(isValid(datum.Domestic)?datum.Domestic:0)", as:"Dom"},
+    {calculate:"(isValid(datum.International)?datum.International:0)", as:"Intl"},
+    {calculate:"datum.Dom+datum.Intl", as:"Tot"}, {filter:"datum.Tot>0"},
+    {calculate:"datum.Dom/datum.Tot", as:"pDom"}, {calculate:"datum.Intl/datum.Tot", as:"pInt"},
+    {window:[{op:"sum",field:"Tot",as:"CumTot"}], sort:[{field:"Tot",order:"descending"}]},
+    {joinaggregate:[{op:"sum",field:"Tot",as:"AllTot"}]},
+    {calculate:"(datum.CumTot-datum.Tot)/datum.AllTot", as:"x0"},
+    {calculate:"datum.CumTot/datum.AllTot", as:"x1"},
+    {fold:["pDom","pInt"], as:["Part","Share"]},
+    {calculate:"datum.Part==='pDom'?0:datum.pDom", as:"y0"},
+    {calculate:"datum.Part==='pDom'?datum.pDom:1", as:"y1"},
+    {calculate:"datum.Part==='pDom'?'Domestic':'International'", as:"Citizenship"},
+    {calculate:"datum.Part==='pDom'?datum.Dom:datum.Intl", as:"CntPart"}
+  ],
+  mark: {type:"rect", stroke:"#fff", strokeWidth:1},
+  encoding: {
+    x:{field:"x0",type:"quantitative",axis:null,scale:{domain:[0,1]}}, x2:{field:"x1"},
+    y:{field:"y0",type:"quantitative",axis:null,scale:{domain:[0,1]}}, y2:{field:"y1"},
+    color:{
+      field:national?"StateFull":"Institution",
+      type:"nominal",
+      scale:{range:PALETTE},            /* ensure no red/green */
+      legend:{title:national?"State":"Institution",orient:"right",columns:1}
+    },
+    tooltip:[
+      {field:national?"StateFull":"Institution",title:national?"State":"Institution"},
+      {field:"Citizenship"},
+      {field:"CntPart",title:"Enrolments",format:",d"},
+      {field:"Tot",title:national?"Total (state)":"Total (inst.)",format:",d"}
+    ]
+  }
+});
+
 vegaEmbed("#mosaic",{
-"$schema":"https://vega.github.io/schema/vega-lite/v5.json",
-"title":{"text":{"expr":"(stateSel==='All States'?'Australia — totals by state':'Institutions — '+stateSel)+' ('+toString(yearSel)+')'"},
-         "subtitle":"Width=total; split=Domestic(bottom)/International(top); colour=key"},
-"data":{"url":U},
-"params":[
- {"name":"stateSel","value":"All States",
-  "bind":{"input":"select","name":"Select State: ",
-          "options":["All States","New South Wales","Victoria","Queensland","Western Australia","South Australia","Tasmania","Northern Territory","Australian Capital Territory","Multi-State"]}},
- {"name":"yearSel","value":2023,
-  "bind":{"input":"range","name":"Select Year: ","min":2018,"max":2023,"step":1}}
-],
-"transform":[
- {"calculate":"datum.State=='NSW'?'New South Wales':datum.State=='VIC'?'Victoria':datum.State=='QLD'?'Queensland':datum.State=='WA'?'Western Australia':datum.State=='SA'?'South Australia':datum.State=='TAS'?'Tasmania':datum.State=='NT'?'Northern Territory':datum.State=='ACT'?'Australian Capital Territory':datum.State","as":"StateFull"},
- {"filter":"toNumber(datum.Year)==yearSel"}
-],
-"layer":[
- {"transform":[
-   {"filter":"stateSel==='All States'"},
-   {"filter":"lower(datum.StateFull)!='grand total' && lower(datum.StateFull)!='total'"},
-   {"aggregate":[{"op":"sum","field":"Enrolments","as":"Cnt"}],"groupby":["StateFull","Citizenship"]},
-   {"pivot":"Citizenship","value":"Cnt","groupby":["StateFull"]},
-   {"calculate":"(isValid(datum.Domestic)?datum.Domestic:0)","as":"Dom"},
-   {"calculate":"(isValid(datum.International)?datum.International:0)","as":"Intl"},
-   {"calculate":"datum.Dom+datum.Intl","as":"Tot"},{"filter":"datum.Tot>0"},
-   {"calculate":"datum.Dom/datum.Tot","as":"pDom"},{"calculate":"datum.Intl/datum.Tot","as":"pInt"},
-   {"window":[{"op":"sum","field":"Tot","as":"CumTot"}],"sort":[{"field":"Tot","order":"descending"}]},
-   {"joinaggregate":[{"op":"sum","field":"Tot","as":"AllTot"}]},
-   {"calculate":"(datum.CumTot-datum.Tot)/datum.AllTot","as":"x0"},
-   {"calculate":"datum.CumTot/datum.AllTot","as":"x1"},
-   {"fold":["pDom","pInt"],"as":["Part","Share"]},
-   {"calculate":"datum.Part==='pDom'?0:datum.pDom","as":"y0"},
-   {"calculate":"datum.Part==='pDom'?datum.pDom:1","as":"y1"},
-   {"calculate":"datum.Part==='pDom'?'Domestic':'International'","as":"Citizenship"},
-   {"calculate":"datum.Part==='pDom'?datum.Dom:datum.Intl","as":"CntPart"}],
-  "mark":{"type":"rect","stroke":"#fff","strokeWidth":1},
-  "encoding":{
-   "x":{"field":"x0","type":"quantitative","axis":null,"scale":{"domain":[0,1]}},"x2":{"field":"x1"},
-   "y":{"field":"y0","type":"quantitative","axis":null,"scale":{"domain":[0,1]}},"y2":{"field":"y1"},
-   "color":{"field":"StateFull","type":"nominal","legend":{"title":"State","orient":"right","columns":1}},
-   "tooltip":[{"field":"StateFull","title":"State"},{"field":"Citizenship"},
-              {"field":"CntPart","title":"Enrolments","format":",d"},{"field":"Tot","title":"Total (state)","format":",d"}]
- }},
- {"transform":[
-   {"filter":"stateSel!=='All States' && datum.StateFull==stateSel"},
-   {"aggregate":[{"op":"sum","field":"Enrolments","as":"Cnt"}],"groupby":["Institution","Citizenship"]},
-   {"pivot":"Citizenship","value":"Cnt","groupby":["Institution"]},
-   {"calculate":"(isValid(datum.Domestic)?datum.Domestic:0)","as":"Dom"},
-   {"calculate":"(isValid(datum.International)?datum.International:0)","as":"Intl"},
-   {"calculate":"datum.Dom+datum.Intl","as":"Tot"},{"filter":"datum.Tot>0"},
-   {"calculate":"datum.Dom/datum.Tot","as":"pDom"},{"calculate":"datum.Intl/datum.Tot","as":"pInt"},
-   {"window":[{"op":"sum","field":"Tot","as":"CumTot"}],"sort":[{"field":"Tot","order":"descending"}]},
-   {"joinaggregate":[{"op":"sum","field":"Tot","as":"AllTot"}]},
-   {"calculate":"(datum.CumTot-datum.Tot)/datum.AllTot","as":"x0"},
-   {"calculate":"datum.CumTot/datum.AllTot","as":"x1"},
-   {"fold":["pDom","pInt"],"as":["Part","Share"]},
-   {"calculate":"datum.Part==='pDom'?0:datum.pDom","as":"y0"},
-   {"calculate":"datum.Part==='pDom'?datum.pDom:1","as":"y1"},
-   {"calculate":"datum.Part==='pDom'?'Domestic':'International'","as":"Citizenship"},
-   {"calculate":"datum.Part==='pDom'?datum.Dom:datum.Intl","as":"CntPart"}],
-  "mark":{"type":"rect","stroke":"#fff","strokeWidth":1},
-  "encoding":{
-   "x":{"field":"x0","type":"quantitative","axis":null,"scale":{"domain":[0,1]}},"x2":{"field":"x1"},
-   "y":{"field":"y0","type":"quantitative","axis":null,"scale":{"domain":[0,1]}},"y2":{"field":"y1"},
-   "color":{"field":"Institution","type":"nominal","legend":{"title":"Institution","orient":"right","columns":1}},
-   "tooltip":[{"field":"Institution"},{"field":"Citizenship"},
-              {"field":"CntPart","title":"Enrolments","format":",d"},{"field":"Tot","title":"Total (inst.)","format":",d"}]
- }}
-],
-"width":1000,"height":440,
-"config":{"view":{"stroke":null},"legend":{"labelLimit":300},"axis":{"grid":false}}
+  $schema:"https://vega.github.io/schema/vega-lite/v5.json",
+  title:{
+    text:{expr:"(stateSel==='All States'?'Australia — totals by state':'Institutions — '+stateSel)+' ('+toString(yearSel)+')'"},
+    subtitle:"Width = total; split = Domestic (bottom) / International (top); colour = key"
+  },
+  data:{url:U},
+  params:[
+    {name:"stateSel",value:"All States",bind:{input:"select",name:"Select State: ",options:OPS}},
+    {name:"yearSel",value:2023,bind:{input:"range",name:"Select Year: ",min:2018,max:2023,step:1}}
+  ],
+  layer:[layer(true), layer(false)],
+  width:950, height:600,
+  config:{view:{stroke:null}, legend:{labelLimit:300}, axis:{grid:false}}
 },{actions:false});
 </script>
