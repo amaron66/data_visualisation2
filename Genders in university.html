@@ -16,7 +16,7 @@
 <body>
 <div id="vis"></div>
 <script>
-const RAW_CSV = "https://raw.githubusercontent.com/amaron66/data_visualisation2/main/gender_by_year.csv";
+const RAW_CSV="https://raw.githubusercontent.com/amaron66/data_visualisation2/main/Gender_by_Year.csv";
 
 const spec={
   "$schema":"https://vega.github.io/schema/vega-lite/v5.json",
@@ -57,9 +57,10 @@ const spec={
     {"mark":{"type":"text","fontSize":18,"fontWeight":"700","align":"center"},
      "encoding":{"text":{"aggregate":"sum","field":"Count","format":",d"},"x":{"value":210},"y":{"value":240}}}
   ],
-  "params":[{"name":"Years","value":2024,"bind":{"input":"range","min":2017,"max":2024,"step":1}}],
+  "params":[{"name":"Years","value":2023,"bind":{"input":"range","min":2017,"max":2023,"step":1}}],
   "config":{"legend":{"orient":"top","labelLimit":300},"axis":{"labelFont":"inherit","titleFont":"inherit"},"view":{"stroke":null}}
 };
+
 vegaEmbed("#vis",spec,{actions:false});
 </script>
 </body>
